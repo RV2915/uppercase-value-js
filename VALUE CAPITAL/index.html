@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-image: url("bg.jpg");
+    }
+
+    div {
+        margin-top: 50px;
+        margin-left: 50px;
+        height: 230px;
+        width: 400px;
+        /* background-color: blue; */
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+    }
+
+
+    label {
+        padding-top: 1rem;
+        padding-bottom: 1.3rem;
+        display: inline-block;
+    }
+
+
+    button {
+        outline: none;
+        border: none;
+        margin-left: 1.3rem;
+        border-radius: 5px;
+        transition: 3.s ease-in-out;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+
+        <h3 class="text-primary">How to Convert String to UpperCase and LowerCase</h3>
+        <!-- <hr style="border-top:1px dotted #ccc;" /> -->
+
+        <form>
+
+            <label>Enter a String</label>
+            <input type="text" class="form-control" id="str" />
+
+        </form>
+
+        <input type="radio" name="status" value="first" />
+        <label>Single</label>
+        <input type="radio" name="status" value="all" style="margin-left:50px;" />
+        <label>All</label>
+
+        <br />
+        <button type="button" class="btn btn-default" onclick="UpperCase()">Uppercase</button> <button type="button"
+            class="btn btn-default" onclick="LowerCase()">Lowercase</button>
+
+    </div>
+
+
+    <script>
+        let string = document.getElementById("str");
+
+        function GetRadio() {
+            for (let i = 0; i < document.getElementsByName('status').length; i++) {
+                if (document.getElementsByName('status')[i].checked) {
+                    return document.getElementsByName('status')[i].value;
+                }
+            }
+        }
+
+        function UpperCaseFirstLetter(string) {
+            return string[0].toUpperCase() + string.slice(1);
+        }
+
+
+        function LowerCaseFirstLetter(string) {
+            return string[0].toLowerCase() + string.slice(1);
+        }
+
+        function UpperCase() {
+            if (GetRadio() == "all") {
+                string.value = string.value.toUpperCase();
+            } else if (GetRadio() == "first") {
+                string.value = UpperCaseFirstLetter(string.value);
+            }
+        }
+
+        function LowerCase() {
+            if (GetRadio() == "all") {
+                string.value = string.value.toLowerCase();
+            } else if (GetRadio() == "first") {
+                string.value = LowerCaseFirstLetter(string.value);
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
